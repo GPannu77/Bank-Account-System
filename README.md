@@ -1,74 +1,107 @@
-# Data Project Template
+# 🏦 Bank Account System
 
-<a target="_blank" href="https://datalumina.com/">
-    <img src="https://img.shields.io/badge/Datalumina-Project%20Template-2856f7" alt="Datalumina Project" />
-</a>
+A command line banking application that manages accounts, deposits, withdrawals, and transfers. Built in Python using object-oriented programming.
 
-## Cookiecutter Data Science
-This project template is a simplified version of the [Cookiecutter Data Science](https://cookiecutter-data-science.drivendata.org) template, created to suit the needs of Datalumina and made available as a GitHub template.
+---
 
-## Adjusting .gitignore
+## 📋 Overview
 
-Ensure you adjust the `.gitignore` file according to your project needs. For example, since this is a template, the `/data/` folder is commented out and data will not be exlucded from source control:
+This app simulates a basic banking system where you can create accounts, deposit and withdraw money, transfer between accounts, and view full transaction histories. All data is saved to a JSON file so nothing is lost when you close the app.
 
-```plaintext
-# exclude data from source control by default
-# /data/
+---
+
+## 📁 Project Structure
+
+```
+bank-account-system/
+│
+├── src/
+│   ├── __init__.py
+│   ├── account.py        # Account class
+│   ├── bank.py           # Bank class (manages all accounts)
+│   └── transaction.py    # Transaction class (records every action)
+│
+├── data/
+│   └── bank.json         # Saved account data
+│
+├── main.py               # Entry point / menu
+├── requirements.txt
+└── README.md
 ```
 
-Typically, you want to exclude this folder if it contains either sensitive data that you do not want to add to version control or large files.
+---
 
-## Duplicating the .env File
-To set up your environment variables, you need to duplicate the `.env.example` file and rename it to `.env`. You can do this manually or using the following terminal command:
+## 🚀 How to Run
 
+**1. Clone the repository**
 ```bash
-cp .env.example .env # Linux, macOS, Git Bash, WSL
-copy .env.example .env # Windows Command Prompt
+git clone https://github.com/GPannu77/bank-account-system.git
+cd bank-account-system
 ```
 
-This command creates a copy of `.env.example` and names it `.env`, allowing you to configure your environment variables specific to your setup.
+**2. Run the app**
+```bash
+python main.py
+```
 
+No external libraries needed — just Python 3!
 
-## Project Organization
+---
+
+## ✨ Features
+
+- Create and delete bank accounts
+- Deposit and withdraw money
+- Transfer funds between accounts
+- View full transaction history per account
+- Handles errors like insufficient funds
+- Saves and loads data from JSON automatically
+
+---
+
+## 🧱 How It's Built
+
+| File | Class | Responsibility |
+|---|---|---|
+| account.py | `Account` | Stores owner, balance, and transaction history |
+| transaction.py | `Transaction` | Records every action with amount, type, and date |
+| bank.py | `Bank` | Manages all accounts, handles transfers, saves/loads data |
+
+---
+
+## 📊 Example Output
 
 ```
-├── LICENSE            <- Open-source license if one is chosen
-├── README.md          <- The top-level README for developers using this project
-├── data
-│   ├── external       <- Data from third party sources
-│   ├── interim        <- Intermediate data that has been transformed
-│   ├── processed      <- The final, canonical data sets for modeling
-│   └── raw            <- The original, immutable data dump
-│
-├── models             <- Trained and serialized models, model predictions, or model summaries
-│
-├── notebooks          <- Jupyter notebooks. Naming convention is a number (for ordering),
-│                         the creator's initials, and a short `-` delimited description, e.g.
-│                         `1.0-jqp-initial-data-exploration`
-│
-├── references         <- Data dictionaries, manuals, and all other explanatory materials
-│
-├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
-│   └── figures        <- Generated graphics and figures to be used in reporting
-│
-└── src                         <- Source code for this project
-    │
-    ├── __init__.py             <- Makes src a Python module
-    │
-    ├── config.py               <- Store useful variables and configuration
-    │
-    ├── dataset.py              <- Scripts to download or generate data
-    │
-    ├── features.py             <- Code to create features for modeling
-    │
-    │    
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
-    │   └── train.py            <- Code to train models
-    │
-    ├── plots.py                <- Code to create visualizations 
-    │
-    └── services                <- Service classes to connect with external platforms, tools, or APIs
-        └── __init__.py 
+==== Bank Account System ====
+1. Create Account
+2. Deposit
+3. Withdraw
+4. Transfer
+5. View Transaction History
+6. Exit
+
+Enter choice: 5
+
+Account: Alice Johnson (ACC001)
+Balance: $1,250.00
+Transactions:
+  [2026-04-01] DEPOSIT    + $500.00
+  [2026-04-03] WITHDRAWAL - $250.00
+  [2026-04-05] TRANSFER   - $100.00
+  [2026-04-10] DEPOSIT    +$1,100.00
 ```
+
+---
+
+## 🛠️ Technologies Used
+
+- **Python 3**
+- **JSON** — for data storage
+- **OOP** — classes and methods throughout
+- **datetime** — for timestamping transactions
+
+---
+
+## 👤 Author
+
+Gurnoor Pannu — [GitHub](https://github.com/GPannu77)
